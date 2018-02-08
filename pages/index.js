@@ -1,7 +1,6 @@
 import Layout from '../components/MyLayout.js'
 import Link from 'next/link'
-//import fetch from 'isomorphic-unfetch'
-import fetch from 'node-fetch';
+import fetch from 'isomorphic-unfetch'
 
 const PostLink = ({ show }) => (
     <li key={show.id}>

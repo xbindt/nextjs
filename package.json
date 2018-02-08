@@ -12,8 +12,6 @@
     "mongodb": "^2.1.16",
     "morgan": "^1.7.0",
     "object-assign": "4.1.0",
-    "isomorphic-unfetch": "^2.0.0",
-    "next": "^4.2.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

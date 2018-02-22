@@ -5,6 +5,11 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+
+const ns = require ('ns-api') ({
+    username: 'xbindt@hotmail.com',
+    password: 'gg3NJSUPGqdHZaKvmsmt5FVP8wvpF2JqEl-0rbWED8u0UE5ZcgTzdw'
+  });
     
 
 const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
@@ -15,6 +20,14 @@ const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 app.prepare()
 .then(() => {
     const server = express()
+
+    server.get("/stations", function(request, response) {
+        ns.stations(function( err, data ) {
+            response.writeHead(200, {"content-type":"application/json"});
+            data = JSON.stringify(data);
+            response.end(data);
+        });
+    });
 
     server.get('/p/:id', (req, res) => {
         const actualPage = '/post'
@@ -28,7 +41,7 @@ app.prepare()
 
     server.listen(port, ip, (err) => {
         if (err) throw err
-        console.log('> Ready on http://localhost:3000')
+        console.log('> Ready on http://localhost:8080')
     })
 })
 .catch((ex) => {

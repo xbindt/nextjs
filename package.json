@@ -4,10 +4,9 @@
   "description": "Node.js sample app for OpenShift 3",
   "main": "server.js",
   "dependencies": {
+    "express": "^4.15.2",
     "isomorphic-unfetch": "^2.0.0",
     "next": "^4.2.0",
-    "node-simple-router": "^0.10.1",
-    "ns-api": "https://github.com/fvdm/nodejs-ns-api.git",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

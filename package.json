@@ -8,7 +8,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "^4.2.0"
+    "next": "https://github.com/zeit/next.js.git"
   },
   "engine": {
     "node": "*",

@@ -8,7 +8,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "https://github.com/zeit/next.js.git"
+    "next": "5.0.0"
   },
   "engine": {
     "node": "*",
@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/xbindt/nextjs/issues"
   },
-  "homepage": "https://github.com/xbindt/nextjs"
+  "homepage": "https://github.com/xbindt/nextjs",
+  "devDependencies": {
+    "webpack": "^3.11.0"
+  }
 }

@@ -2834,9 +2834,9 @@ npmlog@^4.0.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
-"ns-api@https://github.com/fvdm/nodejs-ns-api.git":
+"ns-api@https://github.com/xbindt/nodejs-ns-api.git":
   version "2.0.8"
-  resolved "https://github.com/fvdm/nodejs-ns-api.git#90709bfde5f0a3184f31e81059af38736da6d3aa"
+  resolved "https://github.com/xbindt/nodejs-ns-api.git#dbb6fe9da9a952bca95b44c854a83af2591b56cf"
   dependencies:
     httpreq "^0.4.24"
     nodexml "^1.0.2"

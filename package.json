@@ -1,6 +1,6 @@
 {
   "name": "nodejs-ex",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Node.js sample app for OpenShift 3",
   "main": "server.js",
   "dependencies": {

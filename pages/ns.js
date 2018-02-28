@@ -25,7 +25,7 @@ class Ns extends React.Component {
         event.preventDefault();
         let autoCompleteInput = this.autoCompleteInput.value
         let stationsFiltered = this.props.stations.filter((station) => {
-            return station.Namen.Kort.substr(0, autoCompleteInput.length).toUpperCase() == autoCompleteInput.toUpperCase();
+            return station.Namen.Lang.toLowerCase().includes(autoCompleteInput.toLowerCase());
         });
         this.setState({stationsFiltered: stationsFiltered});
     }
@@ -39,7 +39,7 @@ class Ns extends React.Component {
                 </form>
                 <ul>
                 {this.state.stationsFiltered.map((station) => {
-                    return(<li key={station.Code} >{station.Namen.Kort}</li>);
+                    return(<li key={station.Code} >{station.Namen.Lang}</li>);
                 })}
                 </ul>
             </Layout>

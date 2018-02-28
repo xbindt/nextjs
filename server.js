@@ -29,6 +29,16 @@ app.prepare()
         });
     });
 
+    //actueele vertrektijden
+    server.get("/vertrektijden", function(request, response) {
+        console.log(request.query.station)
+        ns.vertrektijden(request.query.station || '', function( err, data ) {
+            response.writeHead(200, {"content-type":"application/json"});
+            data = JSON.stringify(data);
+            response.end(data);
+        });
+    });
+
     server.get('/p/:id', (req, res) => {
         const actualPage = '/post'
         const queryParams = { id: req.params.id }

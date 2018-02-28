@@ -1,53 +1,51 @@
 import Layout from '../components/MyLayout.js'
 import fetch from 'isomorphic-unfetch'
+import react from 'react'
 
-const Ns =  (props) => (
-    <Layout>
-       <h1>Ns</h1>
-       <div className="content">
-       
-       <ul>
-        {props.stations.map((station) => (
-            <li key={station.Code}>{station.Namen.Kort}</li>
-        ))}
-        </ul>
-        
-      
-        
-       </div>
-       
-        <style jsx global>{`
-          .content {
-            font-family: 'Arial';
-          }
+class Ns extends React.Component {
 
-          .content a {
-            text-decoration: none;
-            color: blue;
-          }
-
-          .content a:hover {
-            opacity: 0.6;
-          }
-
-          .content h3 {
-            margin: 0;
-            padding: 0;
-            text-transform: uppercase;
-          }
-        `}</style>
-    </Layout>
-)
-
-Ns.getInitialProps = async function (context) {
-    const baseUrl = context.req ? `${context.req.protocol}://${context.req.get('Host')}` : '';
-    const res = await fetch(`${baseUrl}/stations`);
-    const data = await res.json();
-
-
-    return {
-        stations: data
+    constructor() {
+        super();
+        this.state = {
+            stationsFiltered: []
+        };
     }
+
+    static async getInitialProps (context) {
+        const baseUrl = context.req ? `${context.req.protocol}://${context.req.get('Host')}` : '';
+        const res = await fetch(`${baseUrl}/stations`);
+        const data = await res.json();
+    
+        return {
+            stations: data
+        }
+    }
+
+    autoComplete(event) {
+        event.preventDefault();
+        let autoCompleteInput = this.autoCompleteInput.value
+        let stationsFiltered = this.props.stations.filter((station) => {
+            return station.Namen.Kort.substr(0, autoCompleteInput.length).toUpperCase() == autoCompleteInput.toUpperCase();
+        });
+        this.setState({stationsFiltered: stationsFiltered});
+    }
+
+    render() {
+        return(
+            <Layout>
+                
+                <form>
+                    <input type="text" ref={(input) => this.autoCompleteInput = input} placeholder="Station" onKeyUp={(e) => this.autoComplete(e)} />
+                </form>
+                <ul>
+                {this.state.stationsFiltered.map((station) => {
+                    return(<li key={station.Code} >{station.Namen.Kort}</li>);
+                })}
+                </ul>
+            </Layout>
+        );
+    }
+
 }
 
 export default Ns

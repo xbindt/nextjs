@@ -1,6 +1,6 @@
 {
   "name": "nodejs-ex",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Node.js sample app for OpenShift 3",
   "main": "server.js",
   "dependencies": {
@@ -24,8 +24,8 @@
     "type": "git",
     "url": "https://github.com/xbindt/nextjs.git"
   },
-  "author": "Steve Speicher <sspeiche@gmail.com>",
-  "license": "CC-BY-1.0",
+  "author": "Xander Bindt",
+  "license": "C-BY-1.0",
   "bugs": {
     "url": "https://github.com/xbindt/nextjs/issues"
   },

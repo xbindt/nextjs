@@ -31,7 +31,6 @@ app.prepare()
 
     //actueele vertrektijden
     server.get("/vertrektijden", function(request, response) {
-        console.log(request.query.station)
         ns.vertrektijden(request.query.station || '', function( err, data ) {
             response.writeHead(200, {"content-type":"application/json"});
             data = JSON.stringify(data);
@@ -45,13 +44,19 @@ app.prepare()
         app.render(req, res, actualPage, queryParams)
     })
 
+    server.get('/departuretimes/:station', (req, res) => {
+        const actualPage = '/departuretimes'
+        const queryParams = { station: req.params.station }
+        app.render(req, res, actualPage, queryParams)
+    })
+
     server.get('*', (req, res) => {
         return handle(req, res)
     })
 
     server.listen(port, ip, (err) => {
         if (err) throw err
-        console.log('> Ready on http://localhost:8080')
+        console.log('> Ready on http://localhost:8080', port, ip)
     })
 })
 .catch((ex) => {

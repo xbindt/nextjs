@@ -58,6 +58,7 @@ app.prepare()
         if (err) throw err
         console.log('> Ready on http://localhost:8080', port, ip)
     })
+    
 })
 .catch((ex) => {
   console.error(ex.stack)

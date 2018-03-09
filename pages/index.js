@@ -16,7 +16,7 @@ class Ns extends React.Component {
         const baseUrl = context.req ? `${context.req.protocol}://${context.req.get('Host')}` : '';
         const res = await fetch(`${baseUrl}/stations`);
         const data = await res.json();
-    
+        
         return {
             stations: data
         }

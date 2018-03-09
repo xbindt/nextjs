@@ -1,9 +1,10 @@
 {
-  "name": "nodejs-exx",
-  "version": "0.0.67",
-  "description": "Node.js sample app for OpenShift 3",
+  "name": "nodejs-ex",
+  "version": "0.0.6",
+  "description": "Nextjs test site",
   "main": "server.js",
   "dependencies": {
+    "micro": "latest",
     "@zeit/next-sass": "^0.1.1",
     "express": "^4.15.2",
     "isomorphic-unfetch": "^2.0.0",
@@ -20,7 +21,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "npm run build && NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server"
   },
   "repository": {
     "type": "git",

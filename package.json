@@ -4,13 +4,6 @@
   "description": "Node.js sample app for OpenShift 3",
   "main": "server.js",
   "dependencies": {
-    "isomorphic-unfetch": "^2.0.0",
-    "next": "^5.0.0",
-    "ns-api": "https://github.com/xbindt/nodejs-ns-api.git",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "@zeit/next-sass": "^0.1.1",
-    "node-sass": "^4.7.2",
     "express": "^4.15.2"
   },
   "engine": {
@@ -20,7 +13,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "npm run build && NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",

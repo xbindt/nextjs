@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import css from "./header.scss"
+import "./header.scss"
 
 const Header = () => (
     <div>
         <Link href="/">
-          <a className={css.example}>Home</a>
+          <a className="example">Home</a>
         </Link>
     </div>
 )

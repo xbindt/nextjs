@@ -1,3 +1,7 @@
-// next.config.js
+// next.config.js/
 const withSass = require('@zeit/next-sass')
-module.exports = withSass()
+
+module.exports = withSass({cssLoaderOptions: {
+    importLoaders: 1,
+    localIdentName: "[local]___[hash:base64:5]",
+}});

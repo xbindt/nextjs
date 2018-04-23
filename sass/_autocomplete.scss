@@ -1,0 +1,23 @@
+.autocomplete-list {
+    list-style: none;
+    border: solid 1px #b3aca7;
+    border-top: none;
+    width: 500px;
+    margin: -1px 0 0 0;
+    padding: 0;
+
+    li {
+        padding: 0;
+        margin: 0;
+
+        &:hover {
+            background: rgba($secondary-color, 0.5);
+        }
+        a {
+            display: block;
+            width: 470px;
+            padding: 1em;
+            text-decoration: none;
+        }
+    }
+}

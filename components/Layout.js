@@ -1,15 +1,14 @@
 import Header from './Header/Header'
-
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  backgroundColor: '#e6e6e9'
-}
+import Footer from './Footer/Footer'
+import '../sass/base.scss'
 
 const Layout = (props) => (
-  <div style={layoutStyle}>
+  <div>
     <Header />
+    <main>
     {props.children}
+    </main>
+    <Footer />
   </div>
 )
 

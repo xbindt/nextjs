@@ -1,18 +1,31 @@
 {
-  "name": "nodejs-ex",
+  "name": "Nextjs",
   "version": "0.0.6",
   "description": "Nextjs test site",
   "main": "server.js",
   "dependencies": {
-    "micro": "latest",
-    "@zeit/next-sass": "^0.1.1",
-    "express": "^4.15.2",
+    "@zeit/next-sass": "^0.1.2",
+    "apicache": "^1.2.1",
+    "autoprefixer": "^8.2.0",
+    "babel-loader": "^7.1.4",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.11",
+    "emit-file-loader": "0.0.1",
+    "express": "^4.16.3",
+    "extract-text-webpack-plugin": "^3.0.2",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "^5.0.0",
-    "node-sass": "^4.7.2",
+    "memory-cache": "^0.2.0",
+    "micro": "latest",
+    "next": "^5.1.0",
+    "node-sass": "^4.8.3",
     "ns-api": "git+https://github.com/xbindt/nodejs-ns-api.git",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "postcss-loader": "^2.1.3",
+    "raw-loader": "^0.5.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "reveal": "0.0.4",
+    "sass-loader": "6.0.6",
+    "webpack-bundle-analyzer": "^2.8.2"
   },
   "engine": {
     "node": "*",
@@ -21,7 +34,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server"
+    "start": "NODE_ENV=production node server",
+    "analyze": "cross-env ANALYZE=1 next build"
   },
   "repository": {
     "type": "git",
@@ -33,7 +47,5 @@
     "url": "https://github.com/xbindt/nextjs/issues"
   },
   "homepage": "https://github.com/xbindt/nextjs",
-  "devDependencies": {
-    "webpack": "^3.11.0"
-  }
+  "devDependencies": {}
 }

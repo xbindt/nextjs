@@ -1,0 +1,27 @@
+
+@import "../../sass/_vars";
+
+.timetable {
+    border-collapse: collapse;
+    th {
+        text-align: left;
+        padding: 10px;
+        font-family: $font-secondary;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #ffffff;
+    }
+    td {
+        vertical-align: top;
+        padding: 10px;
+
+        .warning {
+            color: red;
+            padding-left: 10px;
+        }
+        .spoorwijziging-true {
+            color: darkorange;
+        }
+    }
+}

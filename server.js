@@ -2,14 +2,23 @@
 const express = require('express')
 const next = require('next')
 const path = require('path');
+const fetch = require('node-fetch');
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
-const ns = require ('ns-api') ({
+/* const ns = require ('ns-api') ({
     username: 'xbindt@hotmail.com',
     password: 'gg3NJSUPGqdHZaKvmsmt5FVP8wvpF2JqEl-0rbWED8u0UE5ZcgTzdw'
-  });
+  }); */
+
+const nsaApi = {
+    headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'gpdUysxVJ2e8ameC2hAWVs6TF3R5HfaOisFz2B70'
+    },
+    'baseUrl':'https://ns-api.nl/reisinfo/api/v2'
+}
 
 
 const port = parseInt(process.env.PORT, 10) || 3008
@@ -24,31 +33,42 @@ async function start() {
 
             //stations
             server.get("/stations", function(request, response) {
-                ns.stations(function( err, data ) {
+                fetch(`${nsaApi.baseUrl}/stations`, {
+                    method: 'get',
+                    headers: nsaApi.headers,
+                })
+                .then(res => res.json())
+                .then(json => {
                     response.writeHead(200, {"content-type":"application/json"});
-                    data = JSON.stringify(data);
-                    response.end(data);
+                    json = JSON.stringify(json);
+                    response.end(json);
                 });
             });
 
             //actueele vertrektijden
-            server.get("/vertrektijden", function(request, response) {
-                ns.vertrektijden(request.query.station || '', function( err, data ) {
+            //request.query.station || ''
+            server.get("/departures", function(request, response) {
+                fetch(`${nsaApi.baseUrl}/departures?station=${request.query.station}`, {
+                    method: 'get',
+                    headers: nsaApi.headers,
+                })
+                .then(res => res.json())
+                .then(json => {
                     response.writeHead(200, {"content-type":"application/json"});
-                    data = JSON.stringify(data);
-                    response.end(data);
+                    json = JSON.stringify(json);
+                    response.end(json);
                 });
             });
-
-            server.get('/p/:id', (req, res) => {
-                const actualPage = '/post'
-                const queryParams = { id: req.params.id }
-                app.render(req, res, actualPage, queryParams)
-            })
 
             server.get('/departuretimes/:station', (req, res) => {
                 const actualPage = '/departuretimes'
                 const queryParams = { station: req.params.station }
+                app.render(req, res, actualPage, queryParams)
+            })
+
+            server.get('/p/:id', (req, res) => {
+                const actualPage = '/post'
+                const queryParams = { id: req.params.id }
                 app.render(req, res, actualPage, queryParams)
             })
 
